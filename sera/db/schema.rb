@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206114008) do
+ActiveRecord::Schema.define(version: 20150206123152) do
+
+  create_table "relation_user_tasks", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "task_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "name"
+    t.string   "caption"
+    t.datetime "dead_line"
+    t.datetime "start_time"
+    t.integer  "weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
